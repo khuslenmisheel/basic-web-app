@@ -45,6 +45,12 @@ export default function QueryProcessor(query: string): string {
       const y = parseInt(plus[2]);
       return (x+y).toString()
   }
+  const minus= query.match(/What is (\d+) minus (\d+)?/)
+  if(minus){
+      const x = parseInt(minus[1]);
+      const y = parseInt(minus[2]);
+      return (x-y).toString()
+  }
 
   return "";
 }
