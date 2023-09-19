@@ -32,7 +32,13 @@ export default function QueryProcessor(query: string): string {
       const y = parseInt(max[2]);
       const z = parseInt(max[3]);
       return (Math.max(x, Math.max(y,z))).toString()
-    }
+  }
+  const mult = query.match(/What is (\d+) multiplied by (\d+)?/)
+  if(mult){
+      const x = parseInt(mult[1]);
+      const y = parseInt(mult[2]);
+      return (x*y).toString()
+  }
 
   return "";
 }
