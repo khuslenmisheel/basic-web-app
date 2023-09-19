@@ -52,5 +52,43 @@ export default function QueryProcessor(query: string): string {
       return (x-y).toString()
   }
 
+  const primes= query.match(/Which of the following numbers are primes: (\d+), (\d+), (\d+), (\d+), (\d+)?/)
+  if(primes){
+      const x = parseInt(primes[1]);
+      const y = parseInt(primes[2]);
+      const a = parseInt(primes[3]);
+      const b = parseInt(primes[4]);
+      let isx = true;
+      let isy = true;
+      let isa = true;
+      let isb = true;
+      const m = Math.max(Math.max(x,y), Math.max(a,b))
+      for(let i = 2, s = Math.sqrt(m); i <= s; i++) {
+        if(x % i === 0){
+          isx = false;
+        } 
+        if(y % i === 0){
+          isy = false;
+        } 
+        if(a% i === 0){
+          isa = false;
+        } 
+        if(b % i === 0){
+          isb = false;
+        } 
+      }
+      if(isx){
+        return x.toString();
+      }
+      if(isy){
+        return y.toString();
+      }
+      if(isa){
+        return a.toString();
+      }
+      if(isb){
+        return b.toString();
+      }
+  }
   return "";
 }
