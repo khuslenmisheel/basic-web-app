@@ -27,4 +27,9 @@ describe("QueryProcessor", () => {
         const response: string = QueryProcessor(query);
         expect(response).toBe(("Khuslen"))
     })
+    test('should answer minus', ()=>{
+        const query = "What is 65 minus 59?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe(("6"))
+    })
 });
